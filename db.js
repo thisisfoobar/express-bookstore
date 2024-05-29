@@ -2,10 +2,16 @@
 
 
 const { Client } = require("pg");
-const {DB_URI} = require("./config");
+const {DB_NAME} = require("./config");
+const password = require("./secretpassword");
+
 
 let db = new Client({
-  connectionString: DB_URI
+  user: "thisisfoobar",
+  host: "localhost",
+  database: DB_NAME,
+  password: password,
+  port: 5432,
 });
 
 db.connect();
